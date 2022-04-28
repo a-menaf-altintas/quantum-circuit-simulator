@@ -1,2 +1,2 @@
 # quantum-circuit-simulator
-## This is quantum circuit simulator, It will be updated regualry.
+### This is a  quantum circuit simulator. It will be updated regularly.
