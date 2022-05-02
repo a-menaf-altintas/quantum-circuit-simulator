@@ -49,7 +49,7 @@ class QuantumCircuitSimulator:
 
 
 if __name__ == "__main__":
-    qc1 = QuantumCircuitSimulator(2)
+    qc1 = QuantumCircuitSimulator(5)
     vector = qc1.qubitState
     print(vector)
     qc1.X(0)
