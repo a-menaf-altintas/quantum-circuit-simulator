@@ -18,8 +18,9 @@ class QuantumCircuitSimulator:
 
         # define methods for the class
 
-        # define method for gate operations on the qubit state
+
     def applyGate(self, gate, wireNumber):
+        """ Single gate operations"""
 
         # initialize identity matrix for identity gate. The order of gate operations are from right to left. 
         # Right most gate represents gate applied to the first qubit in the circuit.
@@ -34,8 +35,10 @@ class QuantumCircuitSimulator:
         # Now apply composed gate to the state vector
         self.qubitState = np.matmul(gate_composed, self.qubitState)
 
-        # define a method for the NOT gate
+ 
     def X(self, wireNumber):
+        """This is NOT GATE method"""
+
         if wireNumber >= self.numberOfQubits:
             quit("Wire number starts from zero to number of qubits -1.\n"\
              + "Wire number can not be greater than or equal number of qubits!")
@@ -45,15 +48,30 @@ class QuantumCircuitSimulator:
         # apply the gate operation
         self.applyGate(notGate, wireNumber)
 
+    def I(self, wireNumber):
+        """ This is IDENTITY GATE method"""
+
+        if wireNumber >= self.numberOfQubits:
+            quit("Wire number starts from zero to number of qubits -1.\n"\
+             + "Wire number can not be greater than or equal number of qubits!")
+            
+        identityGate = np.array([ [1, 0], [0, 1] ])
+            
+        # apply the gate operation
+        self.applyGate(identityGate, wireNumber)
+
 
 
 
 if __name__ == "__main__":
-    qc1 = QuantumCircuitSimulator(5)
-    vector = qc1.qubitState
-    print(vector)
+    qc1 = QuantumCircuitSimulator(3)
+    
+    print("Qubit state initilized with the state: ",qc1.qubitState)
     qc1.X(0)
+    print(qc1.qubitState)
     #qc1.X(1)
-    qc1.X(2)
+    qc1.I(1)
+    print(qc1.qubitState)
+    qc1.I(2)
     print(qc1.qubitState)
     stop = 0
