@@ -1,1 +1,1 @@
-This is a  quantum circuit simulator. It will be updated regularly.
+This is a  gate based quantum computer simulator. It will be updated regularly.
